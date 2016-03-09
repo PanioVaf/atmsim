@@ -5,12 +5,9 @@
 
 
 import argparse
+import atm_model
 
- 
-
-
-
-def check_num_notes(value):
+def validate_num_notes(value):
 	ivalue = int(value)	
 	if ivalue < 0:
 		raise argparse.ArgumentTypeError("%s is an invalid number of notes" % value)
@@ -18,13 +15,17 @@ def check_num_notes(value):
 
 def main():
 	parser = argparse.ArgumentParser(description='This is an ATM simulator')
-	parser.add_argument('--twenty_notes', metavar='twenty_notes', type=check_num_notes, 
+	parser.add_argument('--twenty_notes', metavar='twenty_notes', type=validate_num_notes, 
 		help='The number of notes with $20 value', required=True)
-	parser.add_argument('--fifty_notes', metavar='fifty_notes', type=check_num_notes, 
+	parser.add_argument('--fifty_notes', metavar='fifty_notes', type=validate_num_notes, 
 		help='The number of notes with $50 value', required=True)
 	args = parser.parse_args()
-	print args.twenty_notes
-	print args.fifty_notes
+	
+	model = atm_model.Model()
+	
+	model.set_balance(args.twenty_notes,args.fifty_notes)
+	model.show()
+
 
 
 if __name__ == '__main__':

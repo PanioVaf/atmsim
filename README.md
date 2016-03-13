@@ -9,7 +9,7 @@ It supports only $20 and $50 notes. The system dispenses only legal combinations
 ## Install dependencies
 
 If you are on a Mac or Linux machine, you probably already have Python installed. In this project 
-we use Python 2.7.10
+we use Python 2.7.10.
 We need to make sure though that we install pip and virtualenv for the correct version of Python on your computer. Open a terminal and run the following command:
 
 ```
@@ -32,7 +32,7 @@ $ source .env/bin/activate
 $ pip install -r requirements.txt
 ```
 
-## Instructions - How to Run
+## How to Run
 
 To command to run the **atmsim** is given below. 
 The user has to specify the number of twenty and fifty dollar notes as command line arguments.
@@ -61,7 +61,14 @@ optional arguments:
 ```
 
 
-
+## Design
+```
++------------+
+|            |
+| atm  model |
+|            |
++------------+
+```
 
 
 

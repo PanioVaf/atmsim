@@ -62,6 +62,12 @@ optional arguments:
 
 
 ## Design
+
+The main design pattern is MVC (Model - View - Controller).
+For the Viewer Class we are using the command line screen.
+For the Controller we are using the keyboard. 
+In this design we can replace the ATM VIEWER and CONTROLLER with different classes, for example to support a WEB app.
+
 ```
               +-----------------+
               |                 |

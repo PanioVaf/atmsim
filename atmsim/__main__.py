@@ -1,33 +1,21 @@
+# -*- coding: utf-8 -*-
 # Exc!te HOLIDAYS
 # Copyright (C) 2016  - Vafeiadis Panagiotis
 # This is free software and you are welcome to redistibute it 
 # under certain conditions.
 
-
-import argparse
 import atm_model
+import atm_viewer
+import atm_controller
 
-def validate_num_notes(value):
-	ivalue = int(value)	
-	if ivalue < 0:
-		raise argparse.ArgumentTypeError("%s is an invalid number of notes" % value)
-	return ivalue
-
-def main():
-	parser = argparse.ArgumentParser(description='This is an ATM simulator')
-	parser.add_argument('--twenty_notes', metavar='twenty_notes', type=validate_num_notes, 
-		help='The number of notes with $20 value', required=True)
-	parser.add_argument('--fifty_notes', metavar='fifty_notes', type=validate_num_notes, 
-		help='The number of notes with $50 value', required=True)
-	args = parser.parse_args()
-	
+def main():	
 	model = atm_model.Model()
-	
-	model.set_balance(args.twenty_notes,args.fifty_notes)
-	model.show()
+	viewer = atm_viewer.Viewer()
+	controller = atm_controller.Controller(model, viewer)
 
+	(twenty_notes, fifty_notes) = controller.parse_input_arg()
 
+	controller.run(twenty_notes, fifty_notes)
 
 if __name__ == '__main__':
     main()
-

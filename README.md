@@ -100,7 +100,33 @@ In this design we can replace the ATM VIEWER and CONTROLLER with different class
 
 ```
 
+## Testing
 
+### Lettuce Framework
 
+We are using a behavior driven framework named [Lettuce](http://lettuce.it/) for the high level tests.
 
+The common BDD approach basically consists in:
+* writing some unit tests
+* running these tests
+* making these tests fail
+* writing code
+* making the code pass these tests (green status)
+
+Lettuce provide to the developers the ability of describing features in a natural language, 
+by creating one or more scenarios. Each scenario has one possible behaviour of the feature you want to implement. To make the scenarios run python code, it is necessary to define steps.
+We are running the behaviour driven test executing the command below.
+
+```
+
+```
+
+### Nose Framework
+
+For the unit tests, we are using the framework [Nose](https://nose.readthedocs.org/en/latest/).
+We are running the unit tests executing the command below.
+
+```
+$ nosetests tests
+```
 

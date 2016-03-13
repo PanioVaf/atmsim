@@ -115,10 +115,11 @@ The common BDD approach basically consists in:
 
 Lettuce provide to the developers the ability of describing features in a natural language, 
 by creating one or more scenarios. Each scenario has one possible behaviour of the feature you want to implement. To make the scenarios run python code, it is necessary to define steps.
-We are running the behaviour driven test executing the command below.
+We are running the behaviour driven tests executing the command below.
 
 ```
-
+$ cd tests
+$ lettuce
 ```
 
 ### Nose Framework

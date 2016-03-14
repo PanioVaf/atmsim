@@ -54,7 +54,7 @@ class Model(object):
 		- "fifty_notes": the number of $50 notes
 		The total balance is updated accordigly.
 
-		If it is not possible to witdraw the specific amount it returns:
+		If it is not possible to withdraw the specific amount it returns:
 		- "status": "failure" 
 		The total balance, the number of $20 and $50 are NOT changed.
 

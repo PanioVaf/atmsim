@@ -1,5 +1,7 @@
 Feature: Testing ATM Withdraw
-    In this test we are testing
+    In this feature we are testing mutiple scenarios changing the 
+    a. amount requested to withdraw
+    b. number of $20 and $50 notes 
     
 
     Scenario: Withdraw invalid and bigger amount than total

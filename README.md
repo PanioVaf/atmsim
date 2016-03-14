@@ -34,10 +34,11 @@ $ pip install -r requirements.txt
 
 ## How to Run
 
-To command to run the **atmsim** is given below. 
+The commands to run the **atmsim** is given below. 
 The user has to specify the number of twenty and fifty dollar notes as command line arguments.
 
 ```
+$ source .env/bin/activate
 $ python atmsim --twenty_notes 5 --fifty_notes 20
 ```
 

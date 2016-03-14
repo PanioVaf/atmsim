@@ -56,5 +56,25 @@ class BasicTestSuite(unittest.TestCase):
     	for strr in str_quit:
     		assert controller.userWantsQuit(strr) == True
 
+    def test_total_balance(self):
+    	model = atmsim.atm_model.Model()
+    	not2=2
+    	not5=2
+    	model.set_balance(not2, not5)
+    	res=[(140,2,2)]
+    	assert model.total_balance() == res[0]
+    	"""twenty_notes = [0, 3, 5]
+    	fifty_notes = [0, 2, 5]
+    	res = [(0,0,0), (100,0,2), (250,0,5), 
+    	(80,3,0), (160,3,2), (310,3,5),
+    	(100,5,0), (200,5,2),(350,5,5)]
+    	i = 0
+       	for note20 in twenty_notes:
+    		for note50 in fifty_notes:
+    			model.set_balance(note20, note50)
+    			assert model.total_balance() == res[i]
+    			i+=1"""
+
+
 if __name__ == '__main__':
     unittest.main()

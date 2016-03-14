@@ -45,9 +45,6 @@ Feature: Testing ATM Withdraw
         Then I see the message I cannot withdraw this amount
 
 
-
-
-
     Scenario: Double Withdraw invalid and bigger amount than total
         Given ATM has 3 notes of twenty dollars
         Given ATM has 2 notes of fifty dollars
@@ -103,8 +100,7 @@ Feature: Testing ATM Withdraw
         Then I see the message I cannot withdraw this amount
 
 
-
-Scenario: Withdraw valid amount, Withdraw invalid and bigger amount than total
+    Scenario: Withdraw valid amount, Withdraw invalid and bigger amount than total
         Given ATM has 5 notes of twenty dollars
         Given ATM has 3 notes of fifty dollars
         Given ATM has been initialised with a deposit
@@ -131,9 +127,30 @@ Scenario: Withdraw valid amount, Withdraw invalid and bigger amount than total
         When I try to withdraw 225 dollars
         Then I see the message I cannot withdraw this amount
 
+    Scenario: Withdraw valid amount with zero 20 notes
+        Given ATM has 0 notes of twenty dollars
+        Given ATM has 2 notes of fifty dollars
+        Given ATM has been initialised with a deposit
+        When I try to withdraw 50 dollars
+        Then ATM gives me 0 twenty notes and 1 fifty notes
 
+    Scenario: Withdraw valid amount with zero 50 notes
+        Given ATM has 2 notes of twenty dollars
+        Given ATM has 0 notes of fifty dollars
+        Given ATM has been initialised with a deposit
+        When I try to withdraw 20 dollars
+        Then ATM gives me 1 twenty notes and 0 fifty notes
 
-
+    Scenario: Triple Withdraw valid -invalid -valid
+        Given ATM has 2 notes of twenty dollars
+        Given ATM has 3 notes of fifty dollars
+        Given ATM has been initialised with a deposit
+        When I try to withdraw 20 dollars
+        Then ATM gives me 1 twenty notes and 0 fifty notes        
+        When I try to withdraw 30 dollars
+        Then I see the message I cannot withdraw this amount
+        When I try to withdraw 50 dollars
+        Then ATM gives me 0 twenty notes and 1 fifty notes
 
 
 

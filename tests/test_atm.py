@@ -37,7 +37,7 @@ class BasicTestSuite(unittest.TestCase):
     	isValid = controller.isValidAmount(amount)
     	assert isValid == False
 
-    def test_check_valid_note(self):
+    def test_check_valid_num_notes(self):
     	notes_twenty = 2
     	notes_fifty = 3
     	notes_twenty_neg = -5
@@ -46,7 +46,10 @@ class BasicTestSuite(unittest.TestCase):
     	controller = atmsim.atm_controller.Controller(model, viewer)
     	assert controller.validate_num_notes(notes_twenty) == notes_twenty
     	assert controller.validate_num_notes(notes_fifty) == notes_fifty
-
+    	try:
+    		assert controller.validate_num_notes(notes_twenty_neg) == True
+    	except:
+    		return False
 
     def test_user_quitting(self):
     	model = atmsim.atm_model.Model()

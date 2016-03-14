@@ -4,6 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath('..'))
 import atmsim
 from atmsim import atm_model
+
 	
 
 @step('ATM has (\d+) notes of twenty dollars')
@@ -23,6 +24,7 @@ def withdraw_amount(step, amount):
 def initial_deposit(step):
 	world.model = atmsim.atm_model.Model()
 	world.model.set_balance(world.notes_twenty, world.notes_fifty)
+
 
 @step('I see the message I cannot withdraw this amount')
 def cannot_withdraw(step):

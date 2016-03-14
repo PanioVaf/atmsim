@@ -35,9 +35,9 @@ class Controller(object):
 	def userWantsQuit(self, user_input):
 		return user_input.strip(' ').lower() == 'q'
 
-	def isValidAmount(self, s):
+	def isValidAmount(self, amount):
 	    try: 
-	        amount = int(s)
+	        amount = int(amount)
 	        return (amount >= 0)
 	    except ValueError:
 	        return False

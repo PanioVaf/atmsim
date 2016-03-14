@@ -62,7 +62,8 @@ class Model(object):
 		self.lock.acquire()
 
 		combinations = []
-		for notes50 in range(1 + amount / 50):
+		range_fifty = min(amount / 50, self.fifty_notes)
+		for notes50 in range(1 + range_fifty):
 			notes20 = (amount - notes50 * 50) / 20			
 			if notes20 >= 0 and notes20 <= self.twenty_notes:
 				
